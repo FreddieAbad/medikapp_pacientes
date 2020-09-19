@@ -1,0 +1,163 @@
+.textPoppins {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.textLora {
+  font-family: 'Hind', serif;
+}
+
+#textoFooterInv {
+  font-size: 15px;
+  text-align: center;
+}
+
+/* #textCuencaDev {
+  font-size: 10px;
+  text-align: center;
+} */
+
+#iconoFooter {
+  color: #7A7A7A
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Hind', serif;
+  text-align: justify;
+}
+
+/* navbar  */
+.active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #01AA95;
+  color: #4F4F4F;
+}
+
+.navbar-custom {
+  background-color: #DFE3EB;
+}
+
+/* footer */
+#footerMain {
+  background-color: #4F4F4F;
+}
+
+/* //barra buscar */
+input[type="text"] {
+  border-style: none none none none
+}
+
+button[type="submit"] {
+  margin-left: -55px;
+  width: 55px;
+  border-color: #828282;
+
+  /* color: black; */
+  border-style: none none none solid;
+  border-radius: 0 30px 30px 0;
+  -webkit-appearance: none;
+}
+
+/* item total */
+.item-total {
+  background-color: #343A40;
+  color: white;
+  font-weight: bold;
+}
+
+/* 404 item-sin-direccion */
+.item-sin-direccion {
+  color: #DF394C;
+  font-weight: bold;
+}
+
+.actualice-datos {
+  color: #DF394C;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sin-datos {
+  text-decoration: underline;
+  line-height: 2;
+  text-decoration-color: #DF394C;
+}
+
+ul {
+  font-family: 'Hind', serif;
+  text-align: justify;
+}
+
+.texto-tarifa {
+  color: #5C913B;
+  font-weight: bold;
+}
+
+.card-ejemplos {
+  background-color: #EEEEEE;
+}
+
+/* links paginas  */
+#linkPaginas {
+  font-weight: 600;
+  color: #001589;
+}
+
+#usuarioEncontrado {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #6BBB4C;
+  text-align: center;
+}
+
+#erroresDatosEmpleado {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #DF394C;
+  text-align: center;
+}
+
+#tarifaModeloP {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #6BBB4C;
+}
+
+
+
+.ngx-pagination {
+  padding-left: 0px !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ngx-pagination .current,
+/* .btn-info {
+  background: #001589 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+  font-family: 'Open Sans', sans-serif;
+
+
+} */
+
+.ngx-pagination .current:hover {
+  background: #001589 !important;
+  border-radius: 20px !important;
+  border: transparent !important;
+  font-family: 'Open Sans', sans-serif;
+
+}
+/* medikalapp */
+#tituloGestion{
+  color: #01AA95;
+  font-weight: bold;
+}
+
+h5{
+  font-weight: bold;
+}
