@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=mI64TjWxVgI
+
+swagger
+https://www.youtube.com/watch?v=AV8i4h7HwqE
+
+GET
+https://localhost:5001/api/paciente
+POST
+https://localhost:5001/api/paciente
+{
+    "id_doctor": "dr q345",
+    "nombre": "Freddy12345 Abad",
+    "telefono": "07 2340585",
+    "direccion": "Av Primero de Mayo"
+}
+PUT
+https://localhost:5001/api/paciente/5f665b70741dd9f96a3190e7
+{
+    "id": "5f665b70741dd9f96a3190e7",
+    "id_doctor": "1",
+    "nombre": "Freddy Abad",
+    "telefono": "07 2340585",
+    "direccion": "Av Primero de Mayo"
+}
+DELETE
+https://localhost:5001/api/paciente/5f665b70741dd9f96a3190e7
