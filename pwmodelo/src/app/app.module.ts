@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from 'src/app/componentes/cabecera/cabecera.component';
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
-import { ContenidoComponent } from 'src/app/componentes/contenido/contenido.component';
 import { ModeloComponent } from 'src/app/componentes/modelo/modelo.component';
 import { BuscadorComponent } from 'src/app/componentes/buscador/buscador.component';
 import { CalcularComponent } from 'src/app/componentes/calcular/calcular.component';
@@ -24,7 +23,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppComponent,
     CabeceraComponent,
     FooterComponent,
-    ContenidoComponent,
     ModeloComponent,
     BuscadorComponent,
     CalcularComponent,
@@ -36,8 +34,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NgxSpinnerModule,
     NgxPaginationModule,
     RouterModule.forRoot([
-      { path: '', component: ContenidoComponent },
-      { path: 'contenido', component: ContenidoComponent },
+      { path: '', component: ModeloComponent },
       { path: 'modelo', component: ModeloComponent },
       { path: 'buscador', component: BuscadorComponent },
       { path: 'calcular', component: CalcularComponent },
