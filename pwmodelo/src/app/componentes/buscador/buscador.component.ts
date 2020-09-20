@@ -28,7 +28,6 @@ export class BuscadorComponent implements OnInit {
     { id: '4', nombre: 'Dra. Patricia Díaz' },
     { id: '5', nombre: 'Dr. Josefa Acosta' },
     { id: '6', nombre: 'Dra. Martina Espinoza' },
-    { id: '7', nombre: 'Dr. Gestor Espinoza' }
   ]
 
 
