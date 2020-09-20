@@ -64,14 +64,17 @@ export class BuscadorComponent implements OnInit {
     var nombreAdd = this.formAdd.get('iptAddNombres').value;
     var direccionAdd = this.formAdd.get('iptAddDireccion').value;
     var telefonoAdd = this.formAdd.get('iptAddTelefono').value;
+
     var pacienteN = new Paciente();
-    pacienteN.setValuesInstanceUpdate("Alexandra Cordovesa", "1", "07444555", "Canar");
+    pacienteN.setValuesInstanceUpdate(nombreAdd, "1", telefonoAdd, direccionAdd);
     this.pacienteService.postPaciente(pacienteN).subscribe(
       response => {
         alert("Paciente Agregado Exitosamente");
+        window.location.reload();
       },
       err => {
         alert("Error, lo sentimos :(, vuelve a intentarlo");
+        window.location.reload();
       }
     );
   }
@@ -124,6 +127,7 @@ export class BuscadorComponent implements OnInit {
         },
         err => {
           alert("Error, lo sentimos :(, vuelve a intentarlo");
+          window.location.reload();
         }
       );
     }
@@ -136,9 +140,11 @@ export class BuscadorComponent implements OnInit {
       this.pacienteService.eliminarPaciente(_id).subscribe(
         response => {
           alert("Paciente Eliminado Exitosamente");
+          window.location.reload();
         },
         err => {
           alert("Error, lo sentimos :(, vuelve a intentarlo");
+          window.location.reload();
         }
       );
     }

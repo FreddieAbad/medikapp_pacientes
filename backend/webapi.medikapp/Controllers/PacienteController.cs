@@ -21,7 +21,7 @@ namespace webapi.medikapp.Controllers
             return Ok(_pacienteDb.Get());
         }
 
-        [HttpGet("{id:length(24)}", Name = "GetCliente")]
+        [HttpGet("{id:length(24)}", Name = "GetPaciente")]
         public IActionResult GetById(string id)
         {
             var paciente = _pacienteDb.GetById(id);
@@ -35,14 +35,14 @@ namespace webapi.medikapp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Paciente paciente)
+        public IActionResult Create(Paciente cli)
         {
-            _pacienteDb.Create(paciente);
+            _pacienteDb.Create(cli);
 
             return CreatedAtRoute("GetPaciente", new
             {
-                id = paciente.id.ToString()
-            }, paciente);
+                id = cli.id.ToString()
+            }, cli);
         }
 
         [HttpPut("{id:length(24)}")]
