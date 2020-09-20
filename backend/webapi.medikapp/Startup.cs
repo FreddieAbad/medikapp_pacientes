@@ -18,6 +18,7 @@ namespace webapi.medikapp
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -35,6 +36,18 @@ namespace webapi.medikapp
             services.AddSingleton<IMedikappDatabaseSettings>(sp =>
                             sp.GetRequiredService<IOptions<MedikappDatabaseSettings>>().Value);
             services.AddSingleton<PacienteDb>();
+            //cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://example.com",
+                                                          "http://www.contoso.com",
+                                                          "http://localhost:4200/");
+                                  });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +61,7 @@ namespace webapi.medikapp
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

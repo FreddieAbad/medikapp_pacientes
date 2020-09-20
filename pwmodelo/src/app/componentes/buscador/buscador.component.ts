@@ -19,7 +19,7 @@ export class BuscadorComponent implements OnInit {
   divAdd: boolean = false;
   divEdit: boolean = false;
   formEdit: FormGroup;
-  formAdd:FormGroup;
+  formAdd: FormGroup;
 
   doctores = [
     { id: '1', nombre: 'Dr. Luis Ávila Carrera' },
@@ -109,9 +109,20 @@ export class BuscadorComponent implements OnInit {
     // falta get selected option
     // console.log(">>>>"+this.formEdit.get('selectListEditDrs'));
   }
-  public btnEliminarPaciente(_id: String) {
-    var res = this.pacienteService.eliminarPaciente(_id);
-    alert(res);
+  public btnEliminarPaciente(_id: string, nombreUsuario: string): void {
+    var alerta = "Ud procedera a eliminar al Usuario " + nombreUsuario;
+    if (confirm(alerta)) {
+      this.pacienteService.eliminarPaciente(_id).subscribe(
+        response => {
+          alert("Paciente Eliminado Exitosamente");
+        },
+        err => {
+          alert("Error, lo sentimos :(, vuelve a intentarlo");
+        }
+      );
+    }
+
+
   }
 
 
