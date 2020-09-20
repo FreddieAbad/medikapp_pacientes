@@ -4,76 +4,63 @@
     <h1 style="text-align:center" id="tituloGestion">CRUD Pacientes</h1>
     <div class="row">
       <div class="col-6">
-        <button type="button" class="btn btn-info">Agregar Paciente</button>
+        <button type="button" class="btn btn-info" (click)="btnAddPaciente()" *ngIf="btnAgregarngIf">Agregar Paciente</button>
 
       </div>
       <div class="col-6" id="comboboxDrs">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Todos
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Todos</a>
-            <a class="dropdown-item" href="#">Dr. Luis Ávila Carrera</a>
-            <a class="dropdown-item" href="#">Dr. Carlos Correa</a>
-            <a class="dropdown-item" href="#">Dra. Saida Correa Acosta</a>
-            <a class="dropdown-item" href="#">Dra. Patricia Díaz</a>
-            <a class="dropdown-item" href="#">Dr. Josefa Acosta</a>
-            <a class="dropdown-item" href="#">Dr. Martina Espinoza</a>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="container" id="divAgregarPaciente" style="background-color: #DFE3EB; margin-top: 4px;">
-      <h5>Agregar Paciente</h5>
-      <input type="text" class="form-control" id="iptAddNombres" aria-describedby="emailHelp"
-        placeholder="Nombres y Apellidos">
-      <br>
-      <div class="form-group">
-        <label for="sel1">Selecciona un Doctor/a:</label>
-        <select class="form-control" id="selectListAddDrs">
-          <option>Dr. Luis Ávila Carrera</option>
-          <option>Dr. Carlos Correa</option>
-          <option>Dra. Saida Correa Acosta</option>
-          <option>Dra. Patricia Díaz</option>
-          <option>Dr. Josefa Acosta</option>
-          <option>Dr. Martina Espinoza</option>
+    <form [formGroup]="formAdd" autocomplete="off" novalidate>
+      <div class="container" id="divAgregarPaciente" *ngIf="divAdd" style="background-color: #DFE3EB; margin-top: 4px;">
+        <h5>Agregar Paciente</h5>
+        <input type="text" class="form-control" formControlName="iptAddNombres" aria-describedby="emailHelp"
+          placeholder="Nombres y Apellidos">
+        <br>
+        <br>
+        <select class="custom-select" formControlName="selectListAddDrs">
+          <option value="" disabled>Elige un Doctor/a</option>
+          <option [ngValue]="doctor" *ngFor="let doctor of doctores">{{doctor.nombre}}</option>
         </select>
+        <br>
+        <br>
+        <input type="text" class="form-control" formControlName="iptAddDireccion" aria-describedby="emailHelp"
+          placeholder="Direccion">
+        <br>
+        <input type="text" class="form-control" formControlName="iptAddTelefono" aria-describedby="emailHelp"
+          placeholder="Telefono">
+        <br>
+        <button type="submit" class="btn btn-success" (click)="btnAddPacienteBD()">Agregar</button>
+        <br>
+        <br>
       </div>
-      <input type="text" class="form-control" id="iptAddDireccion" aria-describedby="emailHelp" placeholder="Direccion">
-      <br>
-      <input type="text" class="form-control" id="iptAddTelefono" aria-describedby="emailHelp" placeholder="Telefono">
-      <br>
-      <button type="button" class="btn btn-success" id="btnAddPaciente">Agregar</button>
-      <br>
-      <br>
-    </div>
-    <div class="container" id="divEditarPaciente" style="background-color: #DFE3EB; margin-top: 4px;">
-      <h5>Editar Paciente</h5>
-      <input type="text" class="form-control" id="iptAddNombres" aria-describedby="emailHelp"
-        placeholder="Nombres y Apellidos">
-      <br>
-      <div class="form-group">
-        <label for="sel1">Selecciona un Doctor/a:</label>
-        <select class="form-control" id="selectListAddDrs">
-          <option>Dr. Luis Ávila Carrera</option>
-          <option>Dr. Carlos Correa</option>
-          <option>Dra. Saida Correa Acosta</option>
-          <option>Dra. Patricia Díaz</option>
-          <option>Dr. Josefa Acosta</option>
-          <option>Dr. Martina Espinoza</option>
+    </form>
+
+    <form [formGroup]="formEdit" autocomplete="off" novalidate>
+      <div class="container" id="divEditarPaciente" *ngIf="divEdit" style="background-color: #DFE3EB; margin-top: 4px;">
+        <h5>Editar Paciente</h5>
+        <input type="text" class="form-control" formControlName="iptEditNombres" aria-describedby="emailHelp"
+          placeholder="Nombres y Apellidos">
+        <br>
+        <br>
+        <select class="custom-select" formControlName="selectListEditDrs">
+          <option value="" disabled>Elige un Doctor/a</option>
+          <option [ngValue]="doctor" *ngFor="let doctor of doctores">{{doctor.nombre}}</option>
         </select>
+        <br>
+        <br>
+        <input type="text" class="form-control" formControlName="iptEditDireccion" aria-describedby="emailHelp"
+          placeholder="Direccion">
+        <br>
+        <input type="text" class="form-control" formControlName="iptEditTelefono" aria-describedby="emailHelp"
+          placeholder="Telefono">
+        <br>
+        <button type="submit" class="btn btn-warning" id="btnEditPaciente" (click)="saveEditCambios()">Editar</button>
+        <!-- iptEditNombres,selectListEditDrs,iptEditDireccion,iptEditTelefono -->
+        <br>
+        <br>
       </div>
-      <input type="text" class="form-control" id="iptAddDireccion" aria-describedby="emailHelp" placeholder="Direccion">
-      <br>
-      <input type="text" class="form-control" id="iptAddTelefono" aria-describedby="emailHelp" placeholder="Telefono">
-      <br>
-      <button type="button" class="btn btn-warning" id="btnAddPaciente">Editar</button>
-      <br>
-      <br>
-    </div>
-    <div class="table-responsive container mt-4">
+    </form>
+    <div class="table-responsive container mt-4" *ngIf="divTabla">
       <table class="table table-bordered">
         <thead style="background-color: #DFE3EB;">
           <tr>
@@ -86,15 +73,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of servidores | paginate: { itemsPerPage: 20, currentPage: pageActual }">
-            <th scope="row">{{data.cedula}}</th>
-            <td>{{data.facDistacancia}}</td>
-            <td>{{data.facCautividad}}</td>
-            <td>{{data.facDedicacion}}</td>
-            <td>{{data.facTitularidad}}</td>
+          <tr *ngFor="let paciente of pacientes | paginate: { itemsPerPage: 20, currentPage: pageActual }">
+            <th scope="row">{{paciente.id}}</th>
+            <td>{{paciente.nombre}}</td>
+            <td>{{paciente.id_doctor}}</td>
+            <td>{{paciente.telefono}}</td>
+            <td>{{paciente.direccion}}</td>
             <td>
-              <button type="button" class="btn btn-warning">Editar</button>
-              <button type="button" class="btn btn-danger">Eliminar</button>
+              <button type="button" class="btn btn-warning"
+                (click)="btnEditPaciente(paciente.id,paciente.nombre,paciente.id_doctor,paciente.telefono,paciente.direccion)">Editar</button>&nbsp;
+              <button type="button" class="btn btn-danger" (click)="btnEliminarPaciente(paciente.id)">Eliminar</button>
             </td>
           </tr>
           <th></th>
@@ -102,8 +90,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><button type="button" class="btn btn-warning">Editar</button>&nbsp;
-            <button type="button" class="btn btn-danger">Eliminar</button></td>
+          <td></td>
           <tr>
           </tr>
         </tbody>

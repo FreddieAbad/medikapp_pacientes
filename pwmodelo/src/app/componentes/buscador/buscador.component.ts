@@ -4,6 +4,7 @@ import { Servidor } from 'src/app/modelos/servidor/servidor.model';
 import { Paciente } from 'src/app/modelos/paciente/paciente.model';
 
 import { NgxSpinnerService } from "ngx-spinner";
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-buscador',
@@ -11,26 +12,110 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./buscador.component.css']
 })
 export class BuscadorComponent implements OnInit {
-  public servidor: Servidor;
-  public paciente: Paciente[];
+  public pacientes: Paciente[];
+  // public paciente: Paciente;
+  divTabla: boolean = true;
+  btnAgregarngIf: boolean = true;
+  divAdd: boolean = false;
+  divEdit: boolean = false;
+  formEdit: FormGroup;
+  formAdd:FormGroup;
 
-  constructor(private pacienteService: PacienteService, private spinner: NgxSpinnerService) { }
+  doctores = [
+    { id: '1', nombre: 'Dr. Luis Ávila Carrera' },
+    { id: '2', nombre: 'Dr. Carlos Correa' },
+    { id: '3', nombre: 'Dra. Saida Correa Acosta' },
+    { id: '4', nombre: 'Dra. Patricia Díaz' },
+    { id: '5', nombre: 'Dr. Josefa Acosta' },
+    { id: '6', nombre: 'Dra. Martina Espinoza' },
+    { id: '7', nombre: 'Dr. Gestor Espinoza' }
+  ]
+
+
+
+  constructor(private pacienteService: PacienteService, private spinner: NgxSpinnerService, private _formbuilder: FormBuilder) {
+    this.formEdit = this._formbuilder.group({
+      iptEditNombres: [''],
+      iptEditDireccion: [''],
+      iptEditTelefono: [''],
+      selectListEditDrs: [this.doctores[0]]
+    });
+    this.formAdd = this._formbuilder.group({
+      iptAddNombres: [''],
+      iptAddDireccion: [''],
+      iptAddTelefono: [''],
+      selectListAddDrs: [this.doctores[0]]
+    });
+  }
 
   ngOnInit() {
+    this.divTabla = true;
+    this.btnAgregarngIf = true;
+    this.divAdd = false;
+    this.divEdit = false;
+    this.pacienteService.getAllPacientes().subscribe(_pacientes => {
+      this.pacientes = _pacientes;
+      console.log(_pacientes);
+    });
   }
 
 
-  // public getAllServidoresControlador(){
-  //   this.pacienteService.getAllPacientes().subscribe(servidores => {
-  //     var tarifas = servidores[servidores.length - 1];
-  //     servidores.splice(servidores.length - 1, 1);
-  //     this.servidores = servidores;
-  //     this.estadoDescarga = true;
-  //     this.putHTMLValuesServidores(peso1, peso2, peso3, peso4, tarifas);
-  //     console.log(servidores);
-  //     this.spinner.hide();
-  //   }
-  // }
+  public btnAddPaciente() {
+    this.divTabla = false;
+    this.divAdd = true;
+    this.divEdit = false;
+    this.btnAgregarngIf = false;
+    // this.pacienteService.getAllPacientes().subscribe(_pacientes => {
+    //   this.pacientes = _pacientes;
+    //   console.log(_pacientes);
+    //   // this.spinner.hide();
+    // });
+  }
+  public buscarJson(llave: string) {
+    var index = this.doctores.map(function (doctoresJson) { return doctoresJson['id']; }).indexOf(llave);
+    return index;
+  }
+  public btnEditPaciente(_id: String, _nombre: String, _id_doctor: String, _telefono: String, _direccion: String) {
+    this.divTabla = false;
+    this.btnAgregarngIf = false;
+    this.divAdd = false;
+    this.divEdit = true;
+    var nombres = _nombre.toString();
+    var direccion = _direccion.toString();
+    var telefono = _telefono.toString();
+    var indexDoctor = this.buscarJson(_id_doctor.toString());
+    this.constructor(_id, _nombre, _id_doctor, _telefono, _direccion);
+    this.formEdit.setValue({
+      iptEditNombres: nombres,
+      iptEditDireccion: direccion,
+      iptEditTelefono: telefono,
+      selectListEditDrs: this.doctores[indexDoctor]
+    });
+
+  }
+  public saveEditCambios() {
+    var temp1 = this.formEdit.get('iptEditNombres').value;
+    var temp3 = this.formEdit.get('iptEditDireccion').value;
+    var temp4 = this.formEdit.get('iptEditTelefono').value;
+    // this.paciente.setValuesInstanceUpdate(temp1,"1",temp4,temp3);
+
+    if (temp1.length == 0 || temp3.length == 0 || temp4.length == 0) {
+      alert("Los campos no pueden estar vacios, por favor llenelos");
+    } else {
+      console.log(">>>>" + temp1 + ">>>>" + temp3 + ">>>>" + temp4);
+      console.log(">>>>" + temp1.length + ">>>>" + temp3.length + ">>>>" + temp4.length);
+    }
+
+
+    // falta get selected option
+    // console.log(">>>>"+this.formEdit.get('selectListEditDrs'));
+  }
+  public btnEliminarPaciente(_id: String) {
+    var res = this.pacienteService.eliminarPaciente(_id);
+    alert(res);
+  }
+
+
 
 
 

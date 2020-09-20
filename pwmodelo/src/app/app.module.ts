@@ -18,6 +18,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
+//forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
       { path: 'buscador', component: BuscadorComponent },
       { path: 'calcular', component: CalcularComponent },
       { path: '**', component: NotfoundComponent }
-    ])
+    ]),
+    FormsModule,
+    ReactiveFormsModule
     // AppRoutingModule
   ],
   providers: [ServidorService, ServidoresService,{provide: APP_BASE_HREF, useValue : '/' }],
