@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+.textPoppins {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.textLora {
+  font-family: 'Hind', serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Hind', serif;
+  text-align: justify;
+}
+
+/* navbar  */
+.active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #01AA95;
+  color: #4F4F4F;
+}
+
+.navbar-custom {
+  background-color: #DFE3EB;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  color: #01AA95;
+  font-weight: bold;
+}
