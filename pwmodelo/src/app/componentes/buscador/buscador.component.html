@@ -22,7 +22,7 @@
         <input type="text" class="form-control" formControlName="iptAddNombres" aria-describedby="emailHelp"
           placeholder="Nombres y Apellidos">
         <div class="espaciadoDivs"></div>
-        <select class="custom-select" formControlName="selectListAddDrs">
+        <select class="custom-select" formControlName="selectListAddDrs" id="selectListOAdd">
           <option value="" disabled>Elige un Doctor/a</option>
           <option [ngValue]="doctor" *ngFor="let doctor of doctores">{{doctor.nombre}}</option>
         </select>
@@ -33,7 +33,7 @@
         <input type="text" class="form-control" formControlName="iptAddTelefono" aria-describedby="emailHelp"
           placeholder="Telefono">
         <div class="espaciadoDivs"></div>
-        <button type="submit" class="btn btn-success btn-lg btnCss" (click)="savePaciente()">
+        <button type="submit" class="btn btn-success btn-lg btnCss" (click)="saveNewPaciente()">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
@@ -54,7 +54,7 @@
         <input type="text" class="form-control" formControlName="iptEditNombres" aria-describedby="emailHelp"
           placeholder="Nombres y Apellidos">
         <div class="espaciadoDivs"></div>
-        <select class="custom-select" formControlName="selectListEditDrs">
+        <select class="custom-select" formControlName="selectListEditDrs" id="selectListOEdit">
           <option value="" disabled>Elige un Doctor/a</option>
           <option [ngValue]="doctor" *ngFor="let doctor of doctores">{{doctor.nombre}}</option>
         </select>

@@ -46,7 +46,7 @@ export class BuscadorComponent implements OnInit {
     this.btnAgregarngIf = true;
     this.divAdd = false;
     this.divEdit = false;
-    
+
     this.getPacientes();
   }
   public openAddPaciente() {
@@ -55,7 +55,7 @@ export class BuscadorComponent implements OnInit {
     this.divEdit = false;
     this.btnAgregarngIf = false;
   }
-  
+
   public buscarJson(llave: string) {
     var index = this.doctores.map(function (doctoresJson) { return doctoresJson['id']; }).indexOf(llave);
     return index;
@@ -83,9 +83,10 @@ export class BuscadorComponent implements OnInit {
     var nombreAdd = this.formAdd.get('iptAddNombres').value;
     var direccionAdd = this.formAdd.get('iptAddDireccion').value;
     var telefonoAdd = this.formAdd.get('iptAddTelefono').value;
-
+    var idDoctorAdd = (<HTMLInputElement>document.getElementById("selectListOAdd")).value;
+    var id_d_a=idDoctorAdd.split(":")[0];
     var pacienteN = new Paciente();
-    pacienteN.setValuesInstanceUpdate(nombreAdd, "1", telefonoAdd, direccionAdd);
+    pacienteN.setValuesInstanceUpdate(nombreAdd, id_d_a, telefonoAdd, direccionAdd);
     this.pacienteService.postPaciente(pacienteN).subscribe(
       response => {
         alert("Paciente Agregado Exitosamente");
@@ -102,15 +103,15 @@ export class BuscadorComponent implements OnInit {
     var nombreEdit = this.formEdit.get('iptEditNombres').value;
     var direccionEdit = this.formEdit.get('iptEditDireccion').value;
     var telefonoEdit = this.formEdit.get('iptEditTelefono').value;
-    // TODO GET VALUE OF SELECT LIST
-    // this.paciente.setValuesInstanceUpdate(temp1,"1",temp4,temp3);
+    var idDoctorEdit = (<HTMLInputElement>document.getElementById("selectListOEdit")).value;
+    var id_d=idDoctorEdit.split(":")[0];
 
     if (nombreEdit.length == 0 || direccionEdit.length == 0 || telefonoEdit.length == 0) {
       alert("Los campos no pueden estar vacios, por favor llenelos");
     } else {
       var pacienteE = {
         "id": idEdit,
-        "id_doctor": "1",
+        "id_doctor": id_d,
         "nombre": nombreEdit,
         "telefono": telefonoEdit,
         "direccion": direccionEdit
@@ -146,7 +147,7 @@ export class BuscadorComponent implements OnInit {
 
 
   }
-  public getPacientes(){
+  public getPacientes() {
     this.pacienteService.getAllPacientes().subscribe(_pacientes => {
       this.pacientes = _pacientes;
       console.log(_pacientes);
