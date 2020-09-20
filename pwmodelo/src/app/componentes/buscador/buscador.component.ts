@@ -84,7 +84,7 @@ export class BuscadorComponent implements OnInit {
     var direccion = _direccion.toString();
     var telefono = _telefono.toString();
     var indexDoctor = this.buscarJson(_id_doctor.toString());
-    this.constructor(_id, _nombre, _id_doctor, _telefono, _direccion);
+    // this.constructor(_id, _nombre, _id_doctor, _telefono, _direccion);
     this.formEdit.setValue({
       iptEditNombres: nombres,
       iptEditDireccion: direccion,

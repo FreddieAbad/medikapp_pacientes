@@ -70,6 +70,11 @@ ul {
   font-family: 'Open Sans', sans-serif;
 }
 
+#btnAgregarPrincipal {
+  background: #17A2B8 !important;
+
+}
+
 .ngx-pagination .current:hover {
   background: #17A2B8 !important;
   border-radius: 20px !important;
@@ -87,3 +92,27 @@ ul {
 h5 {
   font-weight: bold;
 }
+
+h1{
+  text-align:center;
+}
+
+
+/* tabla */
+thead {
+  background-color: #DFE3EB;
+}
+
+/* container agregar editar paciente */
+#divEditarPaciente,
+#divAgregarPaciente {
+  background-color: #DFE3EB;
+  border-radius: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+/* .btnCss{
+  float: right;
+} */
