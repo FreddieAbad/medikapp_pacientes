@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/app/servicios/pacientes.service';
-import { Servidor } from 'src/app/modelos/servidor/servidor.model';
 import { Paciente } from 'src/app/modelos/paciente/paciente.model';
-
 import { NgxSpinnerService } from "ngx-spinner";
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -13,7 +11,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit {
   public pacientes: Paciente[];
-  // public paciente: Paciente;
   divTabla: boolean = true;
   btnAgregarngIf: boolean = true;
   divAdd: boolean = false;
@@ -73,7 +70,6 @@ export class BuscadorComponent implements OnInit {
     var direccion = _direccion.toString();
     var telefono = _telefono.toString();
     var indexDoctor = this.buscarJson(_id_doctor.toString());
-    // this.constructor(_id, _nombre, _id_doctor, _telefono, _direccion);
     this.formEdit.setValue({
       iptEditId: id,
       iptEditNombres: nombres,
@@ -96,7 +92,7 @@ export class BuscadorComponent implements OnInit {
         window.location.reload();
       },
       err => {
-        alert("Error, lo sentimos :(, vuelve a intentarlo");
+        alert("Lo sentimos, ocurrió un error :(, vuelve a intentarlo");
         window.location.reload();
       }
     );
@@ -121,11 +117,11 @@ export class BuscadorComponent implements OnInit {
       };
       this.pacienteService.putPaciente(idEdit, pacienteE).subscribe(
         response => {
-          alert("Exito en la Actualización de Paciente");
+          alert("Actualización Exitosa");
           window.location.reload();
         },
         err => {
-          alert("Error, lo sentimos :(, vuelve a intentarlo");
+          alert("Lo sentimos, ocurrió un error :(, vuelve a intentarlo");
           window.location.reload();
         }
       );
@@ -138,11 +134,11 @@ export class BuscadorComponent implements OnInit {
     if (confirm(alerta)) {
       this.pacienteService.eliminarPaciente(_id).subscribe(
         response => {
-          alert("Paciente Eliminado Exitosamente");
+          alert("Eliminación Exitosa");
           window.location.reload();
         },
         err => {
-          alert("Error, lo sentimos :(, vuelve a intentarlo");
+          alert("Lo sentimos, ocurrió un error :(, vuelve a intentarlo");
           window.location.reload();
         }
       );

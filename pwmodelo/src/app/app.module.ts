@@ -6,11 +6,8 @@ import { CabeceraComponent } from 'src/app/componentes/cabecera/cabecera.compone
 import { FooterComponent } from 'src/app/componentes/footer/footer.component';
 import { ModeloComponent } from 'src/app/componentes/modelo/modelo.component';
 import { BuscadorComponent } from 'src/app/componentes/buscador/buscador.component';
-import { CalcularComponent } from 'src/app/componentes/calcular/calcular.component';
 import { NotfoundComponent } from 'src/app/componentes/notfound/notfound.component'
 // servicios http
-import { ServidorService } from './servicios/servidor.service'
-import { ServidoresService } from './servicios/servidores.service'
 import { HttpClientModule } from '@angular/common/http';
 //routing
 import { RouterModule } from '@angular/router';
@@ -27,7 +24,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     FooterComponent,
     ModeloComponent,
     BuscadorComponent,
-    CalcularComponent,
     NotfoundComponent
   ],
   imports: [
@@ -39,14 +35,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
       { path: '', component: ModeloComponent },
       { path: 'modelo', component: ModeloComponent },
       { path: 'buscador', component: BuscadorComponent },
-      { path: 'calcular', component: CalcularComponent },
       { path: '**', component: NotfoundComponent }
     ]),
     FormsModule,
     ReactiveFormsModule
     // AppRoutingModule
   ],
-  providers: [ServidorService, ServidoresService,{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
