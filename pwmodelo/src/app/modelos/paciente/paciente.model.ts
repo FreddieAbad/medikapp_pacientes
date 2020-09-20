@@ -2,7 +2,7 @@ import { Deserializable } from "./deserializable.model";
 
 
 export class Paciente {
-  id: string;
+  id?: string;
   nombre:string;
   id_doctor: number;
   telefono: string;

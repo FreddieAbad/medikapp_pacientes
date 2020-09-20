@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Paciente } from 'src/app/modelos/paciente/paciente.model';
 import { catchError, map } from 'rxjs/operators';
@@ -31,19 +31,26 @@ export class PacienteService {
             map(data => data.map(data => new Paciente().deserialize(data)))
         );
     }
-    public putUpdatePaciente(id, paciente): Observable<Paciente> {
-        return this.httpClient.put<Paciente>('https://localhost:5001/api/paciente/' + id, JSON.stringify(paciente));//, this.httpOptions
+    public putPaciente(id, paciente): Observable<Paciente> {
+        // JSON.stringify(paciente)
+        return this.httpClient.put<Paciente>(`/api/paciente/${id}`, paciente);//, this.httpOptions
     }
-    public eliminarPaciente(_id: string): any { 
+    public eliminarPaciente(_id: string): any {
         var url = `https://localhost:5001/api/paciente/${_id}`;
         return this.httpClient.delete(url).pipe(
             catchError(this.errorHandler)
         )
     }
-    // public postPaciente (id, nombre,id_doctor, telefono, direccion): Observable<Response>{
-
-    //         return this.httpClient.post<ResponseG>('https://localhost:5001/api/paciente', _body);
-    // }
+    public postPaciente(paciente: any): Observable<any> {
+        // var headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+        // id, nombre,id_doctor, telefono, direccion
+        // {
+        //     headers: new HttpHeaders({
+        //          'Content-Type':  'application/json',
+        //        })
+        //   }
+        return this.httpClient.post('/api/paciente', paciente);
+    }
 
 }
 
