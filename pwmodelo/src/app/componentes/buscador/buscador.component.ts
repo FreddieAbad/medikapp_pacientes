@@ -49,10 +49,8 @@ export class BuscadorComponent implements OnInit {
     this.btnAgregarngIf = true;
     this.divAdd = false;
     this.divEdit = false;
-    this.pacienteService.getAllPacientes().subscribe(_pacientes => {
-      this.pacientes = _pacientes;
-      console.log(_pacientes);
-    });
+    
+    this.getPacientes();
   }
   public openAddPaciente() {
     this.divTabla = false;
@@ -60,24 +58,7 @@ export class BuscadorComponent implements OnInit {
     this.divEdit = false;
     this.btnAgregarngIf = false;
   }
-  public saveNewPaciente() {
-    var nombreAdd = this.formAdd.get('iptAddNombres').value;
-    var direccionAdd = this.formAdd.get('iptAddDireccion').value;
-    var telefonoAdd = this.formAdd.get('iptAddTelefono').value;
-
-    var pacienteN = new Paciente();
-    pacienteN.setValuesInstanceUpdate(nombreAdd, "1", telefonoAdd, direccionAdd);
-    this.pacienteService.postPaciente(pacienteN).subscribe(
-      response => {
-        alert("Paciente Agregado Exitosamente");
-        window.location.reload();
-      },
-      err => {
-        alert("Error, lo sentimos :(, vuelve a intentarlo");
-        window.location.reload();
-      }
-    );
-  }
+  
   public buscarJson(llave: string) {
     var index = this.doctores.map(function (doctoresJson) { return doctoresJson['id']; }).indexOf(llave);
     return index;
@@ -101,6 +82,24 @@ export class BuscadorComponent implements OnInit {
       selectListEditDrs: this.doctores[indexDoctor]
     });
 
+  }
+  public saveNewPaciente() {
+    var nombreAdd = this.formAdd.get('iptAddNombres').value;
+    var direccionAdd = this.formAdd.get('iptAddDireccion').value;
+    var telefonoAdd = this.formAdd.get('iptAddTelefono').value;
+
+    var pacienteN = new Paciente();
+    pacienteN.setValuesInstanceUpdate(nombreAdd, "1", telefonoAdd, direccionAdd);
+    this.pacienteService.postPaciente(pacienteN).subscribe(
+      response => {
+        alert("Paciente Agregado Exitosamente");
+        window.location.reload();
+      },
+      err => {
+        alert("Error, lo sentimos :(, vuelve a intentarlo");
+        window.location.reload();
+      }
+    );
   }
   public updateChangeForm() {
     var idEdit = this.formEdit.get('iptEditId').value;
@@ -150,5 +149,11 @@ export class BuscadorComponent implements OnInit {
     }
 
 
+  }
+  public getPacientes(){
+    this.pacienteService.getAllPacientes().subscribe(_pacientes => {
+      this.pacientes = _pacientes;
+      console.log(_pacientes);
+    });
   }
 }
