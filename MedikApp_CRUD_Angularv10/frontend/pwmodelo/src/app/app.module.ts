@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 //routing
 import { RouterModule } from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
-import { NgxSpinnerModule } from "ngx-spinner";
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
 //forms
@@ -29,7 +28,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxSpinnerModule,
     NgxPaginationModule,
     RouterModule.forRoot([
       { path: '', component: ModeloComponent },

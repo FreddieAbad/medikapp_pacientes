@@ -7,11 +7,6 @@ import { catchError, map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class PacienteService {
-    // httpOptions = {
-    //     headers: new HttpHeaders({
-    //         'Content-Type': 'application/json'
-    //     })
-    // }
     constructor(private httpClient: HttpClient) { }
     errorHandler(error) {
         let errorMessage = '';
@@ -32,7 +27,6 @@ export class PacienteService {
         );
     }
     public putPaciente(id, paciente): Observable<Paciente> {
-        // JSON.stringify(paciente)
         return this.httpClient.put<Paciente>(`/api/paciente/${id}`, paciente);//, this.httpOptions
     }
     public eliminarPaciente(_id: string): any {
@@ -42,13 +36,6 @@ export class PacienteService {
         )
     }
     public postPaciente(paciente: any): Observable<any> {
-        // var headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
-        // id, nombre,id_doctor, telefono, direccion
-        // {
-        //     headers: new HttpHeaders({
-        //          'Content-Type':  'application/json',
-        //        })
-        //   }
         return this.httpClient.post('/api/paciente', paciente);
     }
 

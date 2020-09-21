@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/app/servicios/pacientes.service';
 import { Paciente } from 'src/app/modelos/paciente/paciente.model';
-import { NgxSpinnerService } from "ngx-spinner";
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -26,7 +25,7 @@ export class BuscadorComponent implements OnInit {
     { id: '5', nombre: 'Dr. Josefa Acosta' },
     { id: '6', nombre: 'Dra. Martina Espinoza' },
   ]
-  constructor(private pacienteService: PacienteService, private spinner: NgxSpinnerService, private _formbuilder: FormBuilder) {
+  constructor(private pacienteService: PacienteService, private _formbuilder: FormBuilder) {
     this.formEdit = this._formbuilder.group({
       iptEditId: [''],
       iptEditNombres: [''],
@@ -84,7 +83,7 @@ export class BuscadorComponent implements OnInit {
     var direccionAdd = this.formAdd.get('iptAddDireccion').value;
     var telefonoAdd = this.formAdd.get('iptAddTelefono').value;
     var idDoctorAdd = (<HTMLInputElement>document.getElementById("selectListOAdd")).value;
-    var id_d_a=idDoctorAdd.split(":")[0];
+    var id_d_a = idDoctorAdd.split(":")[0];
     var pacienteN = new Paciente();
     pacienteN.setValuesInstanceUpdate(nombreAdd, id_d_a, telefonoAdd, direccionAdd);
     this.pacienteService.postPaciente(pacienteN).subscribe(
@@ -104,8 +103,7 @@ export class BuscadorComponent implements OnInit {
     var direccionEdit = this.formEdit.get('iptEditDireccion').value;
     var telefonoEdit = this.formEdit.get('iptEditTelefono').value;
     var idDoctorEdit = (<HTMLInputElement>document.getElementById("selectListOEdit")).value;
-    var id_d=idDoctorEdit.split(":")[0];
-
+    var id_d = idDoctorEdit.split(":")[0];
     if (nombreEdit.length == 0 || direccionEdit.length == 0 || telefonoEdit.length == 0) {
       alert("Los campos no pueden estar vacios, por favor llenelos");
     } else {
@@ -127,8 +125,6 @@ export class BuscadorComponent implements OnInit {
         }
       );
     }
-    // falta get selected option
-    // console.log(">>>>"+this.formEdit.get('selectListEditDrs'));
   }
   public deletePaciente(_id: string, nombreUsuario: string): void {
     var alerta = "Ud procedera a eliminar al Usuario " + nombreUsuario;
