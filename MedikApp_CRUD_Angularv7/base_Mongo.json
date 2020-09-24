@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "5f67e8f56e7ae7ff2c2b3794"
+  },
+  "id_doctor": "2",
+  "nombre": "Elio Trelles",
+  "telefono": "2340598",
+  "direccion": "Samborondon"
+},{
+  "_id": {
+    "$oid": "5f67ec416e7ae7ff2c2b379d"
+  },
+  "id_doctor": "1",
+  "nombre": "Nicolas Segura",
+  "telefono": "2444 666",
+  "direccion": "Venecia y Espana"
+},{
+  "_id": {
+    "$oid": "5f68255a42576e525f147b68"
+  },
+  "id_doctor": "2",
+  "nombre": "Freddy Abad",
+  "telefono": "2 345 985",
+  "direccion": "Catolica"
+}]

@@ -1,0 +1,50 @@
+.btnCss {
+  float: right;
+}
+
+#btnAgregarPrincipal {
+  background: #17A2B8 !important;
+}
+
+
+/* container agregar editar paciente */
+#divEditarPaciente,
+#divAgregarPaciente {
+  background-color: #DFE3EB;
+  border-radius: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+/* tabla */
+thead {
+  background-color: #DFE3EB;
+}
+
+/* Paginacion */
+.ngx-pagination {
+  padding-left: 0px !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ngx-pagination .current,
+.btn-info {
+  background: #17A2B8 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ngx-pagination .current:hover {
+  background: #17A2B8 !important;
+  border-radius: 20px !important;
+  border: transparent !important;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+/* espaciado entre divs */
+.espaciadoDivs {
+  margin: 1rem;
+}

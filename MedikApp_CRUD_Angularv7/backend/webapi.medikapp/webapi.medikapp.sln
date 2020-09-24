@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapi.medikapp", "webapi.medikapp.csproj", "{E11D1206-A176-4BDC-8234-FD099BE86020}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E11D1206-A176-4BDC-8234-FD099BE86020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11D1206-A176-4BDC-8234-FD099BE86020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11D1206-A176-4BDC-8234-FD099BE86020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11D1206-A176-4BDC-8234-FD099BE86020}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A060714-274C-41AC-9C07-9F4E0A73ABA1}
+	EndGlobalSection
+EndGlobal
