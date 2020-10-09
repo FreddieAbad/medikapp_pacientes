@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fredd\\Desktop\\MedikalApp\\medikapp_pacientes\\backend\\webapi.medikapp\\webapi.medikapp.csproj": {}
+    "C:\\Users\\Fredd\\Documents\\medikapp_pacientes\\MedikApp_CRUD_Angularv10\\backend\\webapi.medikapp\\webapi.medikapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fredd\\Desktop\\MedikalApp\\medikapp_pacientes\\backend\\webapi.medikapp\\webapi.medikapp.csproj": {
+    "C:\\Users\\Fredd\\Documents\\medikapp_pacientes\\MedikApp_CRUD_Angularv10\\backend\\webapi.medikapp\\webapi.medikapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fredd\\Desktop\\MedikalApp\\medikapp_pacientes\\backend\\webapi.medikapp\\webapi.medikapp.csproj",
+        "projectUniqueName": "C:\\Users\\Fredd\\Documents\\medikapp_pacientes\\MedikApp_CRUD_Angularv10\\backend\\webapi.medikapp\\webapi.medikapp.csproj",
         "projectName": "webapi.medikapp",
-        "projectPath": "C:\\Users\\Fredd\\Desktop\\MedikalApp\\medikapp_pacientes\\backend\\webapi.medikapp\\webapi.medikapp.csproj",
+        "projectPath": "C:\\Users\\Fredd\\Documents\\medikapp_pacientes\\MedikApp_CRUD_Angularv10\\backend\\webapi.medikapp\\webapi.medikapp.csproj",
         "packagesPath": "C:\\Users\\Fredd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fredd\\Desktop\\MedikalApp\\medikapp_pacientes\\backend\\webapi.medikapp\\obj\\",
+        "outputPath": "C:\\Users\\Fredd\\Documents\\medikapp_pacientes\\MedikApp_CRUD_Angularv10\\backend\\webapi.medikapp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fredd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
